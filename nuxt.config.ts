@@ -1,4 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  app: {
+    head: {
+      title: "ILM Topup",
+    }
+  },
+  modules: [
+    "@nuxtjs/tailwindcss",
+  ],
+  tailwindcss: {
+    cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
+    configPath: "tailwind.config",
+    viewer: true,
+  },
+  css: ["~/assets/css/main.css", "~/assets/css/circles.css"],
 })

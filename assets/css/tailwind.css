@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    /* background-color: #06213F; */
+    background: linear-gradient(to right, hsl(0 0% 20%) 0%, hsl(0 0% 12.9%) 50%, hsl(0 0% 12.2%)) 100%;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: white;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
