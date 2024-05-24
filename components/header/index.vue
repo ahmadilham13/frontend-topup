@@ -3,18 +3,19 @@
         <nav style="background: hsl(23.999999999999986 8.200000000000001% 12%/.75);" class="fixed top-0 z-40 w-full border-b border-t bg-gray-600/75 border-transparent backdrop-blur">
             <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-[3.2rem]">
                 <div class="relative flex h-16 items-center justify-center">
-                    <div class="absolute inset-y-0 left-0 flex items-center">
-                        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="block h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>
-                        </button>
-                    </div>
+                    <button type="button" class="rounded-md bg-murky-800 p-2 text-white lg:hidden">
+                        <span class="sr-only">Open menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                        </svg>
+                    </button>
                     <div class="flex flex-1 items-center sm:items-center sm:justify-start ml-12 gap-4">
                         <div class="flex flex-shrink-0 items-center">
                             <a class="relative w-auto" href="#">
                                 <img alt="logo" srcset="~/assets/img/logo.png" src="" width="50" height="50" decoding="async" data-nimg="1" class="block h-12 w-auto" loading="lazy" style="color: transparent;" />
                             </a>
                         </div>
-                        <p class="hidden md:block text-sm text-ellipsis truncate md:w-[75%] lg:w-[100%] leading-normal italic " style="margin-top:5px;">ILM top-up tercepat dan terpercaya di Indonesia.</p>
+                        <HeaderMenu />
                     </div>
                     <button id="showSearchButton" type="button" onclick="toggleInput()">
                         <div class="flex gap-2 pr-3 lg:pr-2">

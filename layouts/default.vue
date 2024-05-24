@@ -1,8 +1,8 @@
 <template>
-    <LayoutHeader />
-    <LayoutBanner />
+    <Header/>
+    <Banner />
     
     <slot />
 
-    <LayoutFooter />
+    <FooterVue />
 </template>
