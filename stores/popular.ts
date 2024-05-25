@@ -13,14 +13,14 @@ const popular: Popular[] = [
         name: "Mobile Legend",
         company: "Montoon",
         image: "https://scrapping-topup-site.vercel.app/assets/img/populer-mobile-legend.webp",
-        url: "/",
+        url: "/mobile-legends",
     },
     {
         id: "2",
         name: "Genshin Impact",
         company: "HoYoverse",
         image: "https://scrapping-topup-site.vercel.app/assets/img/populer-genshin.webp",
-        url: "/",
+        url: "/genshin-impact",
     },
     {
         id: "3",

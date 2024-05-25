@@ -21,7 +21,7 @@ const items: Data[] = [
                 name: "Mobile Legend",
                 company: "Montoon",
                 image: "https://scrapping-topup-site.vercel.app/assets/img/game-ml.webp",
-                url: "/",
+                url: "/mobile-legends",
             },
             {
                 id: "2",

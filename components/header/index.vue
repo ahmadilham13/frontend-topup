@@ -11,9 +11,9 @@
                     </button>
                     <div class="flex flex-1 items-center sm:items-center sm:justify-start ml-12 gap-4">
                         <div class="flex flex-shrink-0 items-center">
-                            <a class="relative w-auto" href="#">
+                            <nuxt-link class="relative w-auto" href="/">
                                 <img alt="logo" srcset="~/assets/img/logo.png" src="" width="50" height="50" decoding="async" data-nimg="1" class="block h-12 w-auto" loading="lazy" style="color: transparent;" />
-                            </a>
+                            </nuxt-link>
                         </div>
                         <HeaderMenu />
                     </div>
