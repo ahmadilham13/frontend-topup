@@ -1,6 +1,6 @@
 <template>
     <div class="row mt-5 mx-auto">
-        <div class="flex overflow-auto gap-2">
+        <div class="flex overflow-auto hide-scrollbar mb-3 gap-2">
             <template v-for="tab in getTab()">
                 <nuxt-link
                     :to="tab?.query ? `?filter=${tab.query}` : '/'" 
