@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="wrapper mt-3">
+            <ItemsTabs />
             <template v-for="data in getItems(($route.query.filter as string))" class="tab-pane">
                 <div class="mt-3 md:mt-10 grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-3 md:grid-cols-5 md:gap-3 lg:grid-cols-5 lg:gap-3 xl:grid-cols-6 xl:gap-5">
                     <!-- Data Start -->

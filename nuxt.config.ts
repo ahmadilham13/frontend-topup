@@ -15,5 +15,5 @@ export default defineNuxtConfig({
     configPath: "tailwind.config",
     viewer: true,
   },
-  css: ["~/assets/css/main.css", "~/assets/css/circles.css"],
+  css: ["~/assets/css/main.css", "~/assets/css/circles.css", "~/assets/css/twitter-bootstrap.css"],
 })
