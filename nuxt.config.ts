@@ -16,4 +16,10 @@ export default defineNuxtConfig({
     viewer: true,
   },
   css: ["~/assets/css/main.css", "~/assets/css/circles.css", "~/assets/css/twitter-bootstrap.css"],
-})
+  runtimeConfig: {
+    public: {
+      BASE_URL: process.env.API_BASE_URL,
+      API_BASE_URL: process.env.API_BASE_URL + 'api/',
+    },
+  }
+});
