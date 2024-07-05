@@ -19,10 +19,11 @@
                 <h1 class="font-semibold text-[24px] md:text-[28px] lg:text-[32px] leading-[150%] tracking-[0.3px] mt-5">Masuk</h1>
                 <p class="text-md mt-3 mb-2" style="color: rgb(203, 203, 203);">Masuk menggunakan akun terdaftar kamu.</p>
                 <div class="w-full md:w-1/2 lg:w-[35%] mt-[30px]">
-                    <form action="" method="POST">
+                    <form @submit.prevent="login">
                         <div class="relative mb-[20px]">
                             <input
-                                type="text" name="username" 
+                                type="text" 
+                                v-model="formData.username"
                                 class="block rounded-full creativeux-shadow pl-5 pr-5 false pb-2.5 pt-6 w-full text-sm border-0 peer h-14 focus:duration-300 focus:outline-none css-1y2p5dv"
                                 placeholder=" "
                             />
@@ -35,7 +36,8 @@
                         <div class="password-toggle">
                             <div class="relative mb-[20px]">
                                 <input
-                                    type="password" name="password" id="password"
+                                    type="password"
+                                    v-model="formData.password"
                                     class="block rounded-full creativeux-shadow pl-5 pr-[3.2rem] pb-2.5 pt-6 w-full text-sm border-0 peer h-14 focus:duration-300 focus:outline-none css-1y2p5dv"
                                     placeholder=" "
                                     
@@ -72,7 +74,45 @@
 </template>
 
 <script setup lang="ts">
+    import useVuelidate from '@vuelidate/core';
+    import { helpers, required } from '@vuelidate/validators';
+
+    const store = useAuth();
+
+    const { signIn } = store;
+
+
     definePageMeta({
         layout: false,
     });
+
+    const formData = ref({
+        username: "",
+        password: "",
+    });
+
+    const rules = computed(() => {
+        return {
+            username: {
+            required: helpers.withMessage("Username is required.", required),
+            },
+            password: {
+            required: helpers.withMessage("Password is required.", required),
+            },
+        };
+    });
+
+    const $v = useVuelidate(rules, formData);
+
+    const login = async () => {
+        $v.value.$touch();
+
+        if (!$v.value.$invalid) {
+            const payload: any = {
+            ...formData.value,
+            token: 'string',
+            };
+            await signIn(payload)
+        }
+    }
 </script>
