@@ -15,6 +15,9 @@ export default defineNuxtConfig({
     configPath: "tailwind.config",
     viewer: true,
   },
+  plugins: [
+    { src: "~/plugins/pace.js", mode: "client" },
+  ],
   css: ["~/assets/css/main.css", "~/assets/css/circles.css", "~/assets/css/twitter-bootstrap.css"],
   runtimeConfig: {
     public: {
