@@ -30,7 +30,10 @@
                     </button>
 
                     <!-- Unauthenticated Start -->
-                    <button class="inline-flex d-block d-lg-block justify-center rounded-md py-2 text-xs font-medium hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                    <button 
+                        class="inline-flex d-block d-lg-block justify-center rounded-md py-2 text-xs font-medium hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        @click="openLoginorRegister = !openLoginorRegister"
+                    >
                         <div class="flex gap-2 p-2 lg:pr-2 btn-light w-full justify-center rounded-lg py-2 text-sm font-medium md:inline-flex transition duration-300 css-mxl5am">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" width="20" height="20">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"></path>
@@ -38,6 +41,25 @@
                             Masuk
                         </div>
                     </button>
+                    <template v-if="openLoginorRegister">
+                        <div 
+                            class="absolute right-10 top-12 w-72 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-non css-18exuzb transform scale-95"
+                            style="background-color:#211E1C;"
+                        >
+                            <div class="px-1 py-1">
+                                <div>
+                                    <div class="text-center mt-4">
+                                        <img alt="mbgs-logo-" srcset="~/assets/img/logo.png" width="150" height="120" decoding="async" data-nimg="1" class="mx-auto" loading="lazy" style="color: transparent;"/>
+                                        <p class="text-md font-normal mt-2">Selamat datang di <strong>Tess</strong></p>
+                                    </div>
+                                    <div class="flex w-full p-3">
+                                        <nuxt-link href="/auth/login" @click="openLoginorRegister = !openLoginorRegister" class="btn-primary w-full justify-center rounded-l-full py-2 text-sm font-medium md:inline-flex transition duration-300 css-1wpp9sf">Masuk</nuxt-link>
+                                        <nuxt-link href="/auth/register" @click="openLoginorRegister = !openLoginorRegister" class="btn-secondary w-full justify-center rounded-r-full py-2 text-sm font-medium md:inline-flex transition duration-300 css-mxl5am">Daftar</nuxt-link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
                     <!-- Unauthenticated End -->
 
                     <!-- Authenticated Start -->
@@ -71,3 +93,10 @@
         </nav>
     </header>
 </template>
+
+<script setup lang="ts">
+
+
+    const openLoginorRegister = ref(false);
+    
+</script>
