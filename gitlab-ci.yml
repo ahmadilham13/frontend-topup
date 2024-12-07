@@ -1,0 +1,47 @@
+variables:
+  REGISTRY_DEV: docker.io/ahmadilm/topup-frontend
+  DOCKERFILE: Dockerfile
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
+
+stages:
+  - build
+  - deploy
+
+dev_build:
+  stage: build
+  services:
+    - docker:bind
+  before_script:
+    - export TAG=$(echo $CI_COMMIT_TAG | cut -d'-' -f2)
+    - export ENVIRONMENT=$(echo $CI_COMMIT_TAG | cut -d'-' -f1)
+  script:
+    - docker login docker.io --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
+    - export REPO=$(pwd)
+    - cp $ENV_APP_DEV $REPO/.env
+    - docker build --network host -f $DOCKERFILE -t $REGISTRY_DEV:$TAG .
+    - docker push $REGISTRY_DEV:$TAG
+  interruptible: true
+  tags:
+    - topup-runner
+  only:
+    - /^development-.*$/
+
+dev_deploy:
+  stage: deploy
+  services:
+    - docker:bind
+  before_script:
+    - export TAG=$(echo $CI_COMMIT_TAG | cut -d'-' -f2)
+    - export ENVIRONMENT=$(echo $CI_COMMIT_TAG | cut -d'-' -f1)
+  script:
+    - docker login docker.io --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
+    - docker pull $REGISTRY_DEV:$TAG
+    - docker run -d -p 3000:3000 --name "$ENVIRONMENT-frontend-container" -e TAG="$TAG" "$REGISTRY_DEV:$TAG"
+    - docker system prune -af
+    - echo "Deployed successfully to the server"
+  tags:
+    - topup-runner
+  when: manual
+  only:
+    - /^development-.*$/
