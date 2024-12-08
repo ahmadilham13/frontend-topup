@@ -23,7 +23,7 @@ dev_build:
     - docker push $REGISTRY_DEV:$TAG
   interruptible: true
   tags:
-    - topup-runner
+    - topup-fe-runner
   only:
     - /^development-.*$/
 
@@ -41,7 +41,7 @@ dev_deploy:
     - docker system prune -af
     - echo "Deployed successfully to the server"
   tags:
-    - topup-runner
+    - topup-fe-runner
   when: manual
   only:
     - /^development-.*$/
