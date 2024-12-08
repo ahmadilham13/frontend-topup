@@ -10,6 +10,7 @@ stages:
 
 dev_build:
   stage: build
+  image: docker:latest
   services:
     - docker:bind
   before_script:
@@ -29,6 +30,7 @@ dev_build:
 
 dev_deploy:
   stage: deploy
+  image: docker:latest
   services:
     - docker:bind
   before_script:
